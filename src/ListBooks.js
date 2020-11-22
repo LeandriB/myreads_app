@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class ListBooks extends Component {
     render() {
-        <div className="list-books">
+        return (
+            <div className="list-books">
             <div className="list-books-title">
             <h1>MyReads</h1>
             </div>
@@ -161,6 +162,7 @@ class ListBooks extends Component {
                 <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
             </div>
         </div>
+        )
     }
 }
 
