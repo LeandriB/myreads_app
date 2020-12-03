@@ -4,7 +4,7 @@ import Book from './Book'
 
 class BookShelf extends Component {
     
-    static PropTypes = {
+    static propTypes = {
         title: PropTypes.string.isRequired
     }
     render() {
