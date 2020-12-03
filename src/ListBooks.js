@@ -11,13 +11,14 @@ class ListBooks extends Component {
                 </div>
                 <div className="list-books-content">
                     <BookShelf title='Currently Reading'/>
-                    <BookShelf title='Must Read'/>
+                    <BookShelf title='Want to Read'/>
                     <BookShelf title='Read'/>
                 </div>
                 <div className="open-search">
                     <Link 
                         className="add-button"
-                        to='/search'>Add a Book
+                        to='/search'>
+                            <button>Add a Book</button>
                         {/*<button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>*/}
                     </Link>
                 </div>
