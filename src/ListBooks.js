@@ -4,15 +4,33 @@ import BookShelf from './BookShelf'
 
 class ListBooks extends Component {
     render() {
+        const { userBooks } = this.props
+        const bookshelves = [{
+            id: 'currentlyReading',
+            title: 'Currently Reading'
+        },
+        {
+            id: 'wantToRead',
+            title: 'Want to Read'
+        },
+        {
+            id: 'read',
+            title: 'Read'
+        }]
         return (
             <div className="list-books">
                 <div className="list-books-title">
                 <h1>MyReads</h1>
                 </div>
                 <div className="list-books-content">
-                    <BookShelf title='Currently Reading'/>
-                    <BookShelf title='Want to Read'/>
-                    <BookShelf title='Read'/>
+                    {bookshelves.map((bookshelf, index) => {
+                        return <BookShelf 
+                            key={index}
+                            id={bookshelf.id}
+                            title={bookshelf.title}
+                            userBooks={userBooks}
+                            />
+                    })}
                 </div>
                 <div className="open-search">
                     <Link 
