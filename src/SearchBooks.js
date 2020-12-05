@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import Book from './Book'
 
 class SearchBooks extends Component {
+
     state ={
         query: '',
         results: []
     }
 
     render() {
+        const { results, query } = this.props
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -17,13 +19,22 @@ class SearchBooks extends Component {
                     </Link>
                     <div className="search-books-input-wrapper">
                         
-                        <input type="text" placeholder="Search by title or author"/>
+                        <input 
+                            type="text" 
+                            placeholder="Search by title or author"
+                            value={ query }/>
 
                     </div>
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        <Book/>
+                        {results.map((book) => (
+                            <Book
+                                book={book}
+                                key={book.id}
+                            />
+                        ))
+                        }
                     </ol>
                 </div>
             </div>
