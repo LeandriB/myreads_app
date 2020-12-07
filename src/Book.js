@@ -17,7 +17,7 @@ class Book extends Component {
                         <ChangeShelf
                             book={book}/>
                     </div>
-                    <div className="book-title">To Kill a Mockingbird</div>
+                    <div className="book-title">{book.title}</div>
                     <div className="book-authors">Harper Lee</div>
                 </div>
             </li>
