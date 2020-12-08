@@ -5,13 +5,18 @@ class ChangeShelf extends Component {
 
     static propTypes = {
         book: PropTypes.object.isRequired,
+        onMoveBook: PropTypes.func.isRequired
+    }
+
+    state = {
+        shelf: this.props.book.shelf
     }
 
     handleChange = (book , event) => {
         event.preventDefault()
         this.props.onMoveBook(book, event.target.value)
         this.setState({shelf: event.target.value})
-    }    
+    }
 
     render() {
         const { book } = this.props
