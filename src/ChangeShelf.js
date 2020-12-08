@@ -1,10 +1,18 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class ChangeShelf extends Component {
+
+    static propTypes = {
+        book: PropTypes.object.isRequired,
+    }
+
     render() {
+        const { book } = this.props
+        const { shelf } = this.state
         return (
             <div className="book-shelf-changer">
-                <select>
+                <select value={shelf} >
                     <option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
