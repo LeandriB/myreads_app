@@ -7,8 +7,9 @@ class Book extends Component {
     static propTypes = {
         book: PropTypes.object.isRequired
     }
+    
     render() {
-        const { book } = this.props
+        const { book, onMoveBook } = this.props
         return(
             <li>
                 <div className="book">
@@ -19,7 +20,7 @@ class Book extends Component {
                                                         backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : 'icons/cover_placeholder.jpg'})` 
                                                         }}></div>
                         <ChangeShelf
-                            book={book}/>
+                            book={book} moveBook={onMoveBook}/>
                     </div>
                     <div className="book-title">{book.title}</div>
                     <div className="book-authors">{book.authors.join(', ')}</div>
