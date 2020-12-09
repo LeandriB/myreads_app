@@ -9,6 +9,7 @@ class BooksApp extends React.Component {
 
   state = {
     userBooks: [],
+    results: [],
   }
 
   componentDidMount() {
