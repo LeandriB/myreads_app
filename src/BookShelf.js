@@ -5,7 +5,10 @@ import Book from './Book'
 class BookShelf extends Component {
     
     static propTypes = {
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        userBooks: PropTypes.array.isRequired,
+        onMoveBook: PropTypes.func.isRequired
     }
     render() {
         return (
