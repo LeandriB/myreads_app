@@ -10,11 +10,10 @@ class SearchBooks extends Component {
         results: PropTypes.array.isRequired,
         userInput: PropTypes.string.isRequired,
         onMoveBook: PropTypes.func.isRequired
-
     }
 
     render() {
-        const { books, query } = this.props
+        const { books, userInput } = this.props
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -26,7 +25,7 @@ class SearchBooks extends Component {
                         <input 
                             type="text" 
                             placeholder="Search by title or author"
-                            value={ query }/>
+                            value={ userInput }/>
 
                     </div>
                 </div>
@@ -36,6 +35,7 @@ class SearchBooks extends Component {
                             <Book
                                 book={book}
                                 key={book.id}
+                                onMoveBook={(book, shelf) => {this.props.onMoveBook(book, shelf)}}
                             />
                         ))
                         }
