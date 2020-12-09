@@ -1,21 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import Book from './Book'
 
 class SearchBooks extends Component {
 
-    state ={
-        query: '',
-        results: []
+    static propTypes = {
+        userBooks: PropTypes.array.isRequired,
+        results: PropTypes.array.isRequired,
+        userInput: PropTypes.string.isRequired,
+        onMoveBook: PropTypes.func.isRequired
+
     }
 
     render() {
-        const { results, query } = this.props
+        const { books, query } = this.props
         return (
             <div className="search-books">
                 <div className="search-books-bar">
                     <Link to='/'>
-                        <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+                        <button className="close-search">Close</button>
                     </Link>
                     <div className="search-books-input-wrapper">
                         
@@ -28,7 +32,7 @@ class SearchBooks extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {results.map((book) => (
+                        {books.map((book) => (
                             <Book
                                 book={book}
                                 key={book.id}
