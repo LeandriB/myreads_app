@@ -10,6 +10,7 @@ class BooksApp extends React.Component {
   state = {
     userBooks: [],
     results: [],
+    userInput: ''
   }
 
   componentDidMount() {
