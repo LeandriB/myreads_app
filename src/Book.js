@@ -7,7 +7,7 @@ class Book extends Component {
     static propTypes = {
         book: PropTypes.object.isRequired
     }
-    
+
     render() {
         const { book, onMoveBook } = this.props
         return(
@@ -23,7 +23,7 @@ class Book extends Component {
                             book={book} moveBook={onMoveBook}/>
                     </div>
                     <div className="book-title">{book.title}</div>
-                    <div className="book-authors">{book.authors.join(', ')}</div>
+                    <div className="book-authors">{book.authors ? book.authors.join(', ') : 'Unknown Author'}</div>
                 </div>
             </li>
         )
