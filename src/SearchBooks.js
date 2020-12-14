@@ -5,7 +5,7 @@ import Book from './Book'
 
 class SearchBooks extends Component {
     render() {
-        const { results, userBooks, onMoveBook, onSearchBooks} = this.props
+        const { results, userBooks, onMoveBook, onSearchBooks, onResetQuery} = this.props
         const updatedBooks = results.map((book) => {
             userBooks.map((b) => {
                 if(b.id === book.id) {
@@ -20,7 +20,7 @@ class SearchBooks extends Component {
             <div className="search-books">
                 <div className="search-books-bar">
                     <Link to='/'>
-                        <button className="close-search">Close</button>
+                        <button className="close-search" onClick={onResetQuery}>Close</button>
                     </Link>
                     <SearchInput
                         onSearchBooks={onSearchBooks}
