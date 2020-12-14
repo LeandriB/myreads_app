@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ChangeShelf from './ChangeShelf.js'
+import ChangeShelf from './ChangeShelf'
 
 class Book extends Component {
 
     static propTypes = {
-        book: PropTypes.object.isRequired
+        book: PropTypes.object.isRequired,
+        shelf: PropTypes.string.isRequired
     }
 
     render() {
-        const { book, onMoveBook } = this.props
+        const { book, onMoveBook} = this.props
         return(
             <li>
                 <div className="book">
@@ -20,7 +21,7 @@ class Book extends Component {
                                                         backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : 'icons/cover_placeholder.jpg'})` 
                                                         }}></div>
                         <ChangeShelf
-                            book={book} moveBook={onMoveBook}/>
+                            book={book} shelf={this.props.shelf} onMoveBook={onMoveBook}/>
                     </div>
                     <div className="book-title">{book.title}</div>
                     <div className="book-authors">{book.authors ? book.authors.join(', ') : 'Unknown Author'}</div>
