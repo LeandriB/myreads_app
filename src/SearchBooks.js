@@ -1,44 +1,41 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import SearchInput from './SearchInput'
 import Book from './Book'
 
 class SearchBooks extends Component {
-
-    static propTypes = {
-        userBooks: PropTypes.array.isRequired,
-        results: PropTypes.array.isRequired,
-        userInput: PropTypes.string.isRequired,
-        onMoveBook: PropTypes.func.isRequired
-    }
-
     render() {
-        const { books, userInput } = this.props
+        const { results, userBooks, onMoveBook, onSearchBooks} = this.props
+        const updatedBooks = results.map((book) => {
+            userBooks.map((b) => {
+                if(b.id === book.id) {
+                    book.shelf = b.shelf;
+                }
+                return b;
+            });
+            return book;
+        })
+
         return (
             <div className="search-books">
                 <div className="search-books-bar">
                     <Link to='/'>
                         <button className="close-search">Close</button>
                     </Link>
-                    <div className="search-books-input-wrapper">
-                        
-                        <input 
-                            type="text" 
-                            placeholder="Search by title or author"
-                            value={ userInput }/>
-
-                    </div>
+                    <SearchInput
+                        onSearchBooks={onSearchBooks}
+                    />
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {books.map((book) => (
+                        {updatedBooks.map((book) => (
                             <Book
                                 book={book}
                                 key={book.id}
-                                onMoveBook={(book, shelf) => {this.props.onMoveBook(book, shelf)}}
+                                shelf={book.shelf ? book.shelf : 'none'}
+                                onMoveBook={onMoveBook}
                             />
-                        ))
-                        }
+                        ))}
                     </ol>
                 </div>
             </div>
