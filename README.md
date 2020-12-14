@@ -67,3 +67,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * How to use [Debounce](https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086) to imporve application performance
 * Rendering with [Conditional Operators](https://reactjs.org/docs/conditional-rendering.html)
+* Used [James Priest](https://james-priest.github.io/reactnd-project-myreads/) breakdown of the My Reads Project to fully understand how to break down and split up the UI components.
