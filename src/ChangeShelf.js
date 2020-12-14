@@ -9,7 +9,7 @@ class ChangeShelf extends Component {
     }
 
     state = {
-        value: this.props.book.shelf // adding book gives me the proper value of shelf in state
+        value: this.props.shelf
     }
 
     handleChange = event => {
