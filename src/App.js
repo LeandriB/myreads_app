@@ -7,19 +7,19 @@ import SearchBooks from './SearchBooks';
 import './App.css';
 
 class BooksApp extends React.Component {
-
+  // Declare state variables
   state = {
     userBooks: [],
     results: [],
     error: false
   }
-
+  // Invoke componentDidMount in order to insert components into the DOM tree
   componentDidMount() {
     BooksAPI.getAll()
     .then(books => {
       this.setState({userBooks: books})
   })}
-
+  // Function to allow books to be moved between shelves
   moveBook = (book, shelf) => {
     BooksAPI.update(book, shelf).catch(error => {
       console.log(error);
@@ -36,7 +36,7 @@ class BooksApp extends React.Component {
       }));
     }
   }
-
+  // Function to search books in database by using debounce to optimize app performance
   searchBooks = debounce(300, query => {
     if (query.length > 0) {
       BooksAPI.search(query).then(books => {
@@ -50,6 +50,10 @@ class BooksApp extends React.Component {
       this.setState({results: [] })
     }
   })
+ // Function to reset input field by clicking back button
+  resetQuery = () => {
+    this.setState({results: []})
+  }
 
   render() {
     const { userBooks, results } = this.state
@@ -67,6 +71,7 @@ class BooksApp extends React.Component {
             userBooks={userBooks}
             onMoveBook={this.moveBook}
             onSearchBooks={this.searchBooks}
+            onResetQuery={this.resetQuery}
           />
         )}/>
       </div>
