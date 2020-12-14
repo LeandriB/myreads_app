@@ -6,19 +6,6 @@ import ListBooks from './ListBooks';
 import SearchBooks from './SearchBooks';
 import './App.css';
 
-const bookshelves = [{
-  id: 'currentlyReading',
-  title: 'Currently Reading'
-},
-{
-  id: 'wantToRead',
-  title: 'Want to Read'
-},
-{
-  id: 'read',
-  title: 'Read'
-}]
-
 class BooksApp extends React.Component {
 
   state = {
@@ -71,7 +58,6 @@ class BooksApp extends React.Component {
         <Route exact path='/' render={() => (
           <ListBooks
             userBooks={userBooks}
-            bookshelves={bookshelves}
             onMoveBook={this.moveBook}
           />
         )}/>
