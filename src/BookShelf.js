@@ -10,13 +10,7 @@ class BookShelf extends Component {
         userBooks: PropTypes.array.isRequired,
         onMoveBook: PropTypes.func.isRequired
     }
-/*
-    getBooks() {
-        const { shelf } = this.props
-        const booksOnShelf = this.props.userBooks.filter((book) => book.shelf === shelf.id)
-        return booksOnShelf
-    }
-*/
+
     render() {
         const { title, onMoveBook, userBooks } = this.props
         const booksOnShelf = userBooks.filter(book => book.shelf === this.props.id)
