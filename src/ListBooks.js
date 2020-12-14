@@ -4,7 +4,6 @@ import BookShelf from './BookShelf'
 
 class ListBooks extends Component {
     render() {
-        const { userBooks  } = this.props
         const bookshelves = [{
             id: 'currentlyReading',
             title: 'Currently Reading'
@@ -17,6 +16,8 @@ class ListBooks extends Component {
             id: 'read',
             title: 'Read'
         }]
+
+        const { userBooks, onMoveBook} = this.props
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -29,6 +30,7 @@ class ListBooks extends Component {
                             id={shelf.id}
                             title={shelf.title}
                             userBooks={userBooks}
+                            onMoveBook={onMoveBook}
                         />
                     })}
                 </div>
@@ -37,7 +39,6 @@ class ListBooks extends Component {
                         className="add-button"
                         to='/search'>
                             <button>Add a Book</button>
-                        {/*<button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>*/}
                     </Link>
                 </div>
         </div>
