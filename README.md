@@ -25,7 +25,12 @@ Make sure all your dependencies are installed in your terminal or updated to the
 
 ## Project Preview
 
+User selected books for each bookshelf:
+
 ![ListBooks Component](/img/ListBooks.png)
+
+Data that is being pulled from the backend:
+
 ![SearchBooks Component](/img/SearchBooks.png)
 
 ## Backend Server
