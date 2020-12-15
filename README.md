@@ -25,7 +25,7 @@ Make sure all your dependencies are installed in your terminal or updated to the
 
 ## Project Preview
 
-![ListBooks Component](myReads.mov)
+![ListBooks Component](/img/myReads.mov)
 
 ## Backend Server
 
