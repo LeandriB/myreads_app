@@ -1,6 +1,16 @@
 # MyReads App
 
-The goal for this project was to create a React applicaton that allows users to select and categorize the books that they have read, want to read or are currently reading. This application utilizes a provided API server and library. 
+The goal for this project was to create a React applicaton that allows users to select and categorize the books that they have read, want to read or are currently reading. This application utilizes a provided API server and library.
+
+This application has been split up into 7 components:
+
+* ```App.js``` - Holds **ListBooks** and **SearchBooks** components
+* ```ListBooks.js``` - Displays all three bookshelfves
+* ```SearchBooks.js``` - Displays search results from **SearchInput** component
+* ```SearchInput.js``` - Queries a collection of books in database
+* ```BookShelf.js``` - Displays books that user selected for a specific shelf
+* ```Book.js``` - Displays book information: title, cover and author
+* ```ChangeShelf.js``` - Displays the book's state
 
 ## Installation
 
@@ -12,6 +22,10 @@ The goal for this project was to create a React applicaton that allows users to 
 ## How to run this program
 
 Make sure all your dependencies are installed in your terminal or updated to the lasest version and run ```npm start``` to start the server.
+
+## Project Preview
+
+![ListBooks Component](myReads.mov)
 
 ## Backend Server
 
@@ -67,4 +81,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * How to use [Debounce](https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086) to imporve application performance
 * Rendering with [Conditional Operators](https://reactjs.org/docs/conditional-rendering.html)
-* Used [James Priest](https://james-priest.github.io/reactnd-project-myreads/) breakdown of the My Reads Project to fully understand how to break down and split up the UI components.
+* [James Priest](https://james-priest.github.io/reactnd-project-myreads/) breakdown of the My Reads Project to fully understand how to break down and split up the UI components.
+* [Filtering](https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples) arrays with React
+* ES6 [Static Properties](https://medium.com/@assortedPickle/es6-static-properties-b7fd2a163328)
