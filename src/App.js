@@ -14,14 +14,13 @@ class BooksApp extends React.Component {
     error: false
   }
   // Invoke componentDidMount in order to insert components into the DOM tree
-  componentDidMount() {
-    BooksAPI.getAll()
-    .then(books => {
-      this.setState({userBooks: books})
-  })}
+  async componentDidMount() {
+    const userBooks = await BooksAPI.getAll();
+    this.setState({userBooks})}
   // Function to allow books to be moved between shelves
   moveBook = (book, shelf) => {
-    BooksAPI.update(book, shelf).catch(error => {
+    BooksAPI.update(book, shelf)
+    .catch(error => {
       console.log(error);
       this.setState({ error: true });
     });
@@ -59,21 +58,22 @@ class BooksApp extends React.Component {
     const { userBooks, results } = this.state
     return (
       <div className="app">
-        <Route exact path='/' render={() => (
+        <Route exact path='/'>
           <ListBooks
-            userBooks={userBooks}
-            onMoveBook={this.moveBook}
-          />
-        )}/>
-        <Route path='/search' render={() => (
+              userBooks={userBooks}
+              onMoveBook={this.moveBook}
+            />
+        </Route>
+          
+        <Route path='/search'>
           <SearchBooks
-            results={results}
-            userBooks={userBooks}
-            onMoveBook={this.moveBook}
-            onSearchBooks={this.searchBooks}
-            onResetQuery={this.resetQuery}
-          />
-        )}/>
+              results={results}
+              userBooks={userBooks}
+              onMoveBook={this.moveBook}
+              onSearchBooks={this.searchBooks}
+              onResetQuery={this.resetQuery}
+            />
+        </Route>
       </div>
     )
   }
